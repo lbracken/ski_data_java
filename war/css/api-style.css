@@ -1,0 +1,110 @@
+* { margin: 0; }
+
+html, body {
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+  background-color: #f5f5fb;
+}
+
+html {
+  font-family: Tahoma, Trebuchet MS, Helvetica, Arial;
+  font-size: .9em;
+}
+
+body {}
+
+h1 {
+  font-size: 2.2em;
+  padding-bottom: .25em;
+}
+
+h2 {
+  font-size: 1.75em;
+  margin: 2em 0em .25em 0em;
+  text-decoration: underline;
+}
+
+h3 {
+  font-size: 1.1em;
+  margin: 1em 0em .25em 1em;
+  text-decoration: underline;
+}
+
+
+A:link    {color: #76A0C9; text-decoration: none;}
+A:visited {color: #76A0C9; text-decoration: none;}
+A:hover   {color: #76A0C9; text-decoration: underline;}
+A:active  {color: #76A0C9; outline: none;}
+A:focus   {-moz-outline-style: none;}
+
+p { margin-top: 1em; }
+img {border: none;}
+hr { width: 90%; }
+.clearPanel {clear: both;}
+
+
+#bodyWrapper {
+	
+  /* For sticky footer -- http://ryanfait.com/sticky-footer/ */
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0px 30px -41px 30px; /* the bottom margin is the negative value of the footer's height + border */
+}
+
+#header{
+  padding-top: 1em;
+}
+
+.methodDesc {
+  margin: .75em 0em .75em 1em;	
+}
+
+.reqArgTable, .responseTable {
+  margin-left: 1em;
+}
+
+.reqArgTable, .responseTable td {
+  align: left;
+  vertical-align: top;
+}
+
+.reqArgTable .argName, .responseTable .argName {
+  font-weight: bold;
+  padding-right: .5em;
+}
+
+.srcDisplay {
+  width: 75%;
+  margin: 1em;
+  padding: 1em;
+  font-family: 'Lucida Console', 'Courier New', Courier;
+  border: 1px dashed #666;
+  background-color: #FFF;
+}
+
+#termsOfUse {
+  margin: 75px 0px 60px 0px
+}
+	
+#footer, .push {
+  height: 40px;
+}
+
+#footer {
+  border-top: 1px dotted #666;
+  width: 100%;
+  color: #666;
+}
+
+#footer-inner {
+  margin-left: 40px;
+  padding-top: .5em;
+}
+
+#footer A:link    {color: #666; text-decoration: none;}
+#footer A:visited {color: #666; text-decoration: none;}
+#footer A:hover   {color: #666; text-decoration: underline;}
+#footer A:active  {color: #666; outline: none;}
+#footer A:focus   {-moz-outline-style: none;}

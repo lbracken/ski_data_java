@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+   version="2.5"> 
+   
+	<filter>
+		<filter-name>UrlRewriteFilter</filter-name>
+		<filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>
+		<init-param>
+			<param-name>logLevel</param-name>
+			<param-value>DEBUG</param-value>
+		</init-param>
+		<init-param>
+			<param-name>statusEnabled</param-name>
+			<param-value>true</param-value>
+		</init-param>    
+	</filter>
+	<filter-mapping>
+		<filter-name>UrlRewriteFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>   
+  
+
+	<filter>
+		<filter-name>OneDayCacheFilter</filter-name>
+		<filter-class>com.levibracken.projects.skidb.server.filter.CacheFilter</filter-class>
+		<init-param>
+			<param-name>Cache-Control</param-name>
+			<param-value>max-age=86400</param-value>
+		</init-param>
+	</filter>   
+  
+	<filter>
+		<filter-name>OneYearCacheFilter</filter-name>
+		<filter-class>com.levibracken.projects.skidb.server.filter.CacheFilter</filter-class>
+		<init-param>
+			<param-name>Cache-Control</param-name>
+			<param-value>max-age=31536000,public</param-value>
+		</init-param>
+	</filter>  
+	
+	<!-- For rules on Filter Url-Patterns: http://stackoverflow.com/questions/26732/invalid-url-pattern-servlet-mapping-in-tomcat-6-0 -->
+
+	<filter-mapping>
+		<filter-name>OneYearCacheFilter</filter-name>
+		<url-pattern>*.js</url-pattern>
+	</filter-mapping>	
+	
+	<filter-mapping>
+		<filter-name>OneYearCacheFilter</filter-name>
+		<url-pattern>*.css</url-pattern>
+	</filter-mapping>	
+	
+	<filter-mapping>
+		<filter-name>OneYearCacheFilter</filter-name>
+		<url-pattern>*.gif</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>OneYearCacheFilter</filter-name>
+		<url-pattern>*.jpg</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>OneYearCacheFilter</filter-name>
+		<url-pattern>*.png</url-pattern>
+	</filter-mapping>
+	
+	<!-- While the following files are being regularly updated, set a short cache period -->	
+	<!-- Notable absent are the html pages.  Don't cache them as well for now. -->	
+  	<filter-mapping>
+		<filter-name>OneDayCacheFilter</filter-name>
+		<url-pattern>/js/ski-area-common.js</url-pattern>
+	</filter-mapping>
+		  	<filter-mapping>
+		<filter-name>OneDayCacheFilter</filter-name>
+		<url-pattern>/js/ski-area-location-visualization.js</url-pattern>
+	</filter-mapping>	
+  	<filter-mapping>
+		<filter-name>OneDayCacheFilter</filter-name>
+		<url-pattern>/js/ski-area-size-visualization.js</url-pattern>
+	</filter-mapping>		
+	<filter-mapping>
+		<filter-name>OneDayCacheFilter</filter-name>
+		<url-pattern>/css/style.css</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>OneDayCacheFilter</filter-name>
+		<url-pattern>/css/ski-area-size-visualization.css</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>OneDayCacheFilter</filter-name>
+		<url-pattern>/css/ski-area-location-visualization.css</url-pattern>
+	</filter-mapping>
+  
+   
+  <!-- System Startup Servlet -->
+  <servlet>
+    <servlet-name>StartupServlet</servlet-name>
+    <servlet-class>com.levibracken.projects.skidb.server.servlet.StartupServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>   
+
+  <servlet>
+    <servlet-name>GetSkiAreas</servlet-name>
+    <servlet-class>com.levibracken.projects.skidb.server.servlet.GetSkiAreasServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>GetSkiAreas</servlet-name>
+    <url-pattern>/get_ski_areas</url-pattern>
+  </servlet-mapping>
+
+
+  <servlet>
+    <servlet-name>GetSkiAreasById</servlet-name>
+    <servlet-class>com.levibracken.projects.skidb.server.servlet.GetSkiAreasByIdServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>GetSkiAreasById</servlet-name>
+    <url-pattern>/get_ski_areas_by_id</url-pattern>
+  </servlet-mapping> 
+  
+  
+  <servlet>
+    <servlet-name>GetSkiAreasByName</servlet-name>
+    <servlet-class>com.levibracken.projects.skidb.server.servlet.GetSkiAreasByNameServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>GetSkiAreasByName</servlet-name>
+    <url-pattern>/get_ski_areas_by_name</url-pattern>
+  </servlet-mapping>  
+  
+  
+  <servlet>
+    <servlet-name>GetUSSkiAreaLocations</servlet-name>
+    <servlet-class>com.levibracken.projects.skidb.server.servlet.GetUSSkiAreaLocationsServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>GetUSSkiAreaLocations</servlet-name>
+    <url-pattern>/get_us_ski_areas_location</url-pattern>
+  </servlet-mapping>    
+
+</web-app>

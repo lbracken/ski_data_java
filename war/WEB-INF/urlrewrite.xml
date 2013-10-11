@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE urlrewrite PUBLIC "-//tuckey.org//DTD UrlRewrite 3.2//EN"
+        "http://tuckey.org/res/dtds/urlrewrite3.2.dtd">
+
+<!-- Configuration file for UrlRewriteFilter -->
+<!-- Doc: urlrewritefilter.googlecode.com/svn/trunk/src/doc/manual/3.2/index.html -->
+
+<urlrewrite>
+
+	<rule>
+	    <notes>Remove any trailing slash from URL.</notes>
+		<from>^/ski-area-size-visualization/$</from>
+		<to type="permanent-redirect" last="true">/ski/ski-area-size-visualization</to>
+	</rule>	
+	<rule>
+		<from>^/ski-area-size-visualization$</from>
+		<to>/ski-area-size-visualization.html</to>
+	</rule>
+	
+	
+	<rule>
+	    <notes>Remove any trailing slash from URL.</notes>
+		<from>^/ski-area-location-visualization/$</from>
+		<to type="permanent-redirect" last="true">/ski/ski-area-location-visualization</to>
+	</rule>	
+	<rule>
+		<from>^/ski-area-location-visualization$</from>
+		<to>/ski-area-location-visualization.html</to>
+	</rule>		
+
+</urlrewrite>
+
